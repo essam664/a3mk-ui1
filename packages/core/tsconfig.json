@@ -1,0 +1,85 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    /* ── Output ── */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* ── Declarations ── */
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "noEmit": false,
+
+    /* ── Target & Module ── */
+    "module": "ESNext",
+    "target": "ES2022",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    /* ── Types ── */
+    "types": ["vite/client", "node"],
+
+    /* ── Strictness ── */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* ── Interop ── */
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* ── JSON ── */
+    "resolveJsonModule": true,
+
+    /* ── Modules ── */
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+
+    /* ═══════════════════════════════════════════════════════════════
+     *  ⚠️ Lit-specific options (مهم جدًا)
+     * ═══════════════════════════════════════════════════════════════
+     *
+     *  Lit يعتمد على legacy decorators (@property, @state,
+     *  @customElement) مع class fields.
+     *
+     *  بدون `useDefineForClassFields: false`:
+     *    • ES2022 class fields تتعارض مع legacy decorators
+     *    • الـ decorators لا تعمل بشكل صحيح
+     *    • Reactive properties لا تتحدث
+     *    • قد يظهر الخطأ: "Class fields and decorators conflict"
+     *
+     *  المصدر الرسمي:
+     *    https://lit.dev/docs/components/properties/#declare
+     * ═══════════════════════════════════════════════════════════════ */
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+
+    /* ═══════════════════════════════════════════════════════════════
+     *  Path Aliases — مطابقة تمامًا لـ Vite alias
+     * ═══════════════════════════════════════════════════════════════
+     *  tsconfig.json         →  "@/*": ["./src/*"]
+     *  vite.config.ts        →  alias: { '@': SRC }
+     *
+     *  ✅ متزامنة
+     *  ✅ لا تعارض مع tsconfig.base.json (لا يحتوي على paths)
+     * ═══════════════════════════════════════════════════════════════ */
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+
+  "include": ["src/**/*.ts"],
+
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/*.stories.ts"
+  ]
+}
