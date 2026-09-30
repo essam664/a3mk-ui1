@@ -1,0 +1,86 @@
+{
+  "name": "@a3mk-ui/core",
+  "version": "1.0.0",
+  "description": "A3MK-UI — Glassmorphism Web Components Library",
+  "type": "module",
+
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./auto": {
+      "types": "./dist/auto.d.ts",
+      "import": "./dist/auto.js"
+    },
+    "./button": {
+      "types": "./dist/components/button/a3mk-button.d.ts",
+      "import": "./dist/components/button/a3mk-button.js"
+    },
+    "./config": {
+      "types": "./dist/config/a3mk.config.d.ts",
+      "import": "./dist/config/a3mk.config.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/tokens.d.ts",
+      "import": "./dist/tokens/tokens.js"
+    },
+    "./package.json": "./package.json"
+  },
+
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+
+  "sideEffects": false,
+
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build",
+    "prepublishOnly": "npm run rebuild"
+  },
+
+  "keywords": [
+    "ui",
+    "glassmorphism",
+    "web-components",
+    "a3mk",
+    "framework-agnostic",
+    "typescript",
+    "rtl",
+    "dark-mode",
+    "component-library"
+  ],
+
+  "author": "essam664",
+  "license": "MIT",
+
+  "homepage": "https://github.com/essam664/a3mk-ui1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/essam664/a3mk-ui1.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/essam664/a3mk-ui1/issues"
+  },
+
+  "publishConfig": {
+    "access": "public"
+  },
+
+  "engines": {
+    "node": ">=18.0.0"
+  },
+
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
