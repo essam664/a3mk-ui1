@@ -1,0 +1,20 @@
+{
+  "name": "a3mk-ui1",
+  "version": "1.0.0",
+  "description": "A3MK-UI — Glassmorphism Component Library",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cd packages/core && npm run build",
+    "dev": "cd packages/core && npm run dev",
+    "clean": "rm -rf packages/core/dist"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "essam664",
+  "license": "MIT"
+}
